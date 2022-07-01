@@ -233,7 +233,7 @@ RUN bash -c 'echo $PATH ; /root/NVIDIA-Linux-x86_64-${NV_VER}.run -a -N --ui=non
 WORKDIR /root/ws_baxter/src
 RUN git clone https://github.com/ros-planning/moveit_robots.git
 RUN catkin build --jobs 16 --limit-status-rate 0.001 --no-notify
-RUN apt -y install ros-melodic-moveit-simple-controller-manager ros-melodic-moveit-planners ros-melodic-moveit-visual-tools ros-melodic-moveit-ros-visualization ros-melodic-moveit-commander
+RUN apt update && apt -y install ros-melodic-moveit-simple-controller-manager ros-melodic-moveit-planners ros-melodic-moveit-visual-tools ros-melodic-moveit-ros-visualization ros-melodic-moveit-commander ros-melodic-tf2-web-republisher ros-melodic-rosbridge-suite
 
 WORKDIR /root/rosie
 ENTRYPOINT ["/root/rosie/rosie-sim-guest-runner"]
